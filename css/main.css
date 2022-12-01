@@ -1,0 +1,133 @@
+@media screen and (min-width: 1001px) {
+	form {
+		display: flex;
+		flex-direction: row;
+	}
+
+	form .left {
+		width: 400px;
+		flex-shrink: 0;
+	}
+
+	.output {
+		min-width: 200px;
+		flex-grow: 1;
+	}
+
+	input[type=submit] {
+		float: right;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+
+	form .left,
+	.output {
+		width: 100%
+	}
+
+	input[type=submit] {
+		margin-bottom: 10px;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: #148bb9;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+body {
+	margin: 0;
+	font-family: 'Nunito', sans-serif;
+}
+
+section,
+main {
+	display: inline-block;
+	vertical-align: top;
+}
+
+section {
+	background-color: #efefef;
+	position: fixed;
+	left: 0;
+	top: 25px;
+	height: calc(100vh - 25px);
+	width: 220px;
+	overflow-y: scroll;
+}
+
+#nameList {
+	list-style-type: none;
+	padding: 0;
+	margin: 10px 0 10px 10px;
+}
+
+main {
+	width: calc(100% - 220px);
+	float: right;
+}
+
+.section {
+	padding: 70px 70px;
+	margin: 0 auto;
+}
+
+#lineage {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+form .left {
+	margin-right: 40px;
+}
+
+.output {
+	background-color: #efefef;
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+h3, h2 {
+	margin-top: 0;
+}
+
+input[type=text] {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+form input[type=text] {
+	margin-bottom: 10px;
+}
+
+#search {
+	position: fixed;
+	top: 0;
+	width: 220px;
+	height: 25px;
+	padding-left: 10px;
+}
+
+input[type=submit] {
+	margin-top: 10px
+}
+
+.gray {
+	color: #b3b3b3;
+}
+
+td {
+	padding-right: 20px;
+	vertical-align: top;
+}
+
+th {
+	text-align: left;
+}

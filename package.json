@@ -1,0 +1,8 @@
+{
+  "name": "warriors-family",
+  "version": "1.9",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "puppeteer": "^14.4.1"
+  }
+}
