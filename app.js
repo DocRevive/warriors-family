@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 const http = require('http');
 const qs = require('querystring');
 const consanguinity = require('./consanguinity');
