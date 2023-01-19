@@ -51,5 +51,5 @@ exports.fixUserInput = (chara) => {
     }
   }
 
-  return possible.length === 1 ? possible[0] : possible;
+  return possible;
 };
