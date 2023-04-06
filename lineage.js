@@ -12,6 +12,7 @@ const data = require('./data');
  */
 class Lineage {
   object = {};
+
   initialChar;
 
   /**
@@ -33,12 +34,12 @@ class Lineage {
     const str = lineToFind.toString();
     const char = lineToFind.youngestMember === this.initialChar
       ? lineToFind.oldestMember : lineToFind.youngestMember;
-    return this.object[char]?.some(line => line.toString() === str);
+    return this.object[char]?.some((line) => line.toString() === str);
   }
 
   /**
    * Adds a line to the lineage.
-   * @param {Line} line The Line to add. 
+   * @param {Line} line The Line to add.
    */
   addLine(line) {
     if (this.includes(line)) return;
@@ -70,7 +71,7 @@ class Line {
    * Create a line.
    * @param {Array<string>} array Initial array of character names, the
    *      first element being the character in the oldest generation,
-   *      and the last element that in the newest generation. 
+   *      and the last element that in the newest generation.
    */
   constructor(array) {
     this.array = array;
@@ -127,7 +128,7 @@ class Line {
   /**
    * Add a parent to the end of this line, signifying the parent of
    * the current first, or oldest, character in the line.
-   * @param {string} parentName Name of the parent. 
+   * @param {string} parentName Name of the parent.
    */
   addParent(parentName) {
     this.array.unshift(parentName);
@@ -176,7 +177,7 @@ function getChildren(char, countAdopted) {
  * Returns all members of the next generation (parents if mode is 0, children
  * if mode is 1), and adds each of their lineages to lineageObject in place.
  * @param {0|1} mode 0: find ancestors; 1: find descendants
- * @param {Array<string>} currentGen all character names in the current generation 
+ * @param {Array<string>} currentGen all character names in the current generation
  * @param {Lineage} lineage lineage object of character
  * @param {boolean} countAdopted whether to include adoption
  * @returns {Array<string>} all character names in the next generation, forward or
@@ -246,7 +247,7 @@ exports.findLineage = (mode, char, countAdopted) => {
  * @param {string} char2 Second character to link.
  * @param {boolean} countAdopted Whether to include adoptive relationships.
  * @returns {Object} An object. commonMember: name of closest common
- *      relative; char1Lineages: array of Lines connecting char1 and 
+ *      relative; char1Lineages: array of Lines connecting char1 and
  *      commonMember; char2Lineages: array of Lines connecting char2
  *      and commonMember.
  */

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-    <link href="css/main.css?v=5" rel="stylesheet">
+    <link href="css/main.css?v=6" rel="stylesheet">
     <link rel="icon" href="https://jaw.gg/yqUk1.png" type="image/png">
   </head>
   <body>
@@ -21,17 +21,17 @@
     <section>
       <ul id="nameList"></ul>
     </section><main>
-      <div class="section">
+      <div class="section" id="instructions">
         <h2>Instructions</h2>
         <p>The <i>Warriors</i> series by Erin Hunter has thousands of cats connected through complex bloodlines. This tool lets you easily trace lineages, determine intersections of lineages, and interpret the blood relationship (if it's known) between any two.</p><p>
         </p><p>On the left is a list of ~1400 characters from <a href="https://warriors.fandom.com/wiki/Category:Characters">this</a> and <a href="https://warriors.fandom.com/wiki/Minor_characters">this</a> page. Each name, except for "unnamed parents" , is a link to the character's Wiki entry. The "Unnamed Parent #" characters are not on the Wiki but were included to establish the blood relation between known siblings with unknown parents. You can filter this list by typing in the "Filter" box at the very top. Only these names can be used in any field.</p>
         <p>The <b><a href="#lineage">Lineage</a></b> section requires a cat's name and the choice of either to "find the ancestors," "find the descendants," or simply "show character data." The last option gives you the character's gender, mates, parents (including adoptive if the checkbox is checked), and children. "Find the ancestors" displays a table, in the gray box, with all of the parents of the cat, the grandparents, the great-grandparents... until an ancestor (parent of any degree) has no known parents. Conversely, "find the descendants" displays a table with all of the children of the character, the grandchildren, the great-grandchildren... until a descendant (child of any degree) has no children.
           <br><br>This table also includes the relationship(s) of each character relative to the cat you entered. If there are multiple lineages for one character (which implies inbreeding), relationship labels for each lineage are listed adjacent to it. Each cat's name in the table is a link to its Wiki entry. Each cat also has a line in the next column stating the precise lineal path from ancestor to original cat or original cat to descendant. Note that only blood-related (and adoptive, if "Include adoption?" is checked) cats are included. </p>
         <p>The <b><a href="#intersections">Intersections</a></b> section requires the names of two cats and the choice of either to "determine relation" or "determine crossed lineage." "Determine relation" searches the ancestry of each cat to find their last common ancestor. If one is found, it's displayed, and the precise familial relationship (e.g. cousin, uncle, great-grandnephew) between the two original cats is also displayed. If none is found, then no known blood relation between them exists. "Determine crossed lineage" searches the lineage of each cat to find their first common descendant. If it's found, it's displayed, and the relationships between the descendant and each of the two cats are also displayed. If none is found, then their lines, beginning with the two cats, haven't intersected.</p>
-        <p>Note that if two mates are entered, the tool doesn't immediately consider it a blood relation because they may not have the same ancestry. Enjoy! <img src="../misc-content/cat-fp.png" style="height:1em;vertical-align:-2px;margin-left:3px;"></p>
-        <p><i>Last updated 11/28/2022. Created by Revive#8798</i></p>
+        <p>Note that if two mates are entered, the tool doesn't immediately consider it a blood relation because they may not have the same ancestry. Enjoy! <img src="media/cat-fp.png" style="height:1em;vertical-align:-2px;margin-left:3px;"></p>
+        <p><i>Last updated 4/5/2023 (up-to-date with all books, including ASC #3: Shadow). Created by Revive#8798</i></p>
       </div>
-      <form id="lineage" class="section">
+      <form id="lineage" class="section" autocomplete="off">
         <div class="left">
           <h3>Lineage</h3>
           <input type="text" placeholder="Character" name="char" required><br>
@@ -46,7 +46,7 @@
           <input type="submit" value="Go">
         </div><div class="output"></div>
       </form>
-      <form id="intersections" class="section">
+      <form id="intersections" class="section" autocomplete="off">
         <div class="left">
           <h3>Intersections</h3>
           <input type="text" placeholder="Character 1" name="char1" required><br>
@@ -62,6 +62,6 @@
       </form>
     </main>
   </body>
-  <script src="js/names.js?v=3" type="text/javascript"></script>
-  <script src="js/index.js?v=6" type="text/javascript"></script>
+  <script src="js/names.js?v=4" type="text/javascript"></script>
+  <script src="js/index.js?v=7" type="text/javascript"></script>
 </html>
