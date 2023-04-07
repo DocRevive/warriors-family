@@ -20,7 +20,7 @@ const fixMinorName = (name) => (name.includes('#') ? name.split('#')[1] : name);
  * @param {string} name valid name (full URL part)
  * @returns {string} HTML link
  */
-exports.nameToLink = (name) => `<a href="https://warriors.fandom.com/wiki/${name.replace(/ /g, '_')}">${fixMinorName(name)}</a>`;
+exports.nameToLink = (name) => (name.includes('Unnamed') ? name : `<a href="https://warriors.fandom.com/wiki/${name.replace(/ /g, '_')}">${fixMinorName(name)}</a>`);
 
 /**
  * Takes a string, capitalizes the first letter, replaces underscores
@@ -41,13 +41,13 @@ exports.fixUserInput = (chara) => {
   const charaMatch = fixMinorName(chara).toLowerCase();
   const possible = [];
 
-  for (let i = 0; i < data.names.length; i += 1) {
-    const nameLower = fixMinorName(data.names[i]).toLowerCase();
+  for (const name of data.names) {
+    const nameLower = fixMinorName(name).toLowerCase();
     if (nameLower === charaMatch) {
-      return [data.names[i]];
+      return [name];
     }
     if (nameLower.split(' ').includes(charaMatch)) {
-      possible.push(data.names[i]);
+      possible.push(name);
     }
   }
 

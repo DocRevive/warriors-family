@@ -12,7 +12,15 @@ function generateIntersectStrings(mode, lineages1, lineages2, countAdopted) {
     for (const line2 of lineages2) {
       result.push('-------------------');
       if (mode === 0) {
-        const resolution = consanguinity.determine(line1, data.genders[line1.youngestMember], line2, data.genders[line2.youngestMember], countAdopted, true, false);
+        const resolution = consanguinity.determine(
+          line1,
+          data.genders[line1.youngestMember],
+          line2,
+          data.genders[line2.youngestMember],
+          countAdopted,
+          true,
+          false,
+        );
         result.push(...resolution.result);
         if (!resolution.isFull.result) result.push('', resolution.isFull.reason);
       } else {
@@ -24,7 +32,7 @@ function generateIntersectStrings(mode, lineages1, lineages2, countAdopted) {
             data.genders[line1.youngestMember],
             countAdopted,
             true,
-            false
+            false,
           ).result[0]);
         }
         if (line2.size > 1) {
@@ -35,7 +43,7 @@ function generateIntersectStrings(mode, lineages1, lineages2, countAdopted) {
             data.genders[line2.youngestMember],
             countAdopted,
             true,
-            false
+            false,
           ).result[0]);
         }
       }
@@ -55,7 +63,7 @@ function validateUserInput(input) {
   if (!(char in data.parents)) {
     const fixed = utils.fixUserInput(char);
     if (fixed.length === 1) {
-      char = fixed[0];
+      [char] = fixed;
     } else if (fixed.length > 1) {
       return {
         success: false,
@@ -124,31 +132,29 @@ http.createServer((request, res) => {
               for (const line of lines) {
                 const label = query.action === 0
                   ? consanguinity.determine(
-                      new lineage.Line([line.oldestMember]),
-                      data.genders[line.oldestMember],
-                      line,
-                      data.genders[line.oldestMember],
-                      query.countAdopted,
-                      false,
-                      true
-                    ).result[0]
+                    new lineage.Line([line.oldestMember]),
+                    data.genders[line.oldestMember],
+                    line,
+                    data.genders[line.oldestMember],
+                    query.countAdopted,
+                    false,
+                    true,
+                  ).result[0]
                   : consanguinity.determine(
-                      line,
-                      data.genders[line.youngestMember],
-                      new lineage.Line([line.oldestMember]),
-                      data.genders[line.oldestMember],
-                      query.countAdopted,
-                      false,
-                      true
-                    ).result[0];
+                    line,
+                    data.genders[line.youngestMember],
+                    new lineage.Line([line.oldestMember]),
+                    data.genders[line.oldestMember],
+                    query.countAdopted,
+                    false,
+                    true,
+                  ).result[0];
                 result.push(label);
               }
 
               lineageTableData[member] = {
                 labels: result,
-                lineages: lines.map((line) => {
-                  return line.toString();
-                }),
+                lineages: lines.map((line) => line.toString()),
               };
             }
 
@@ -163,7 +169,7 @@ http.createServer((request, res) => {
 
             lines.push(`Gender: ${genders[data.genders[char]]}`);
             lines.push(`Mates: ${data.mates[char].length > 0 ? data.mates[char].map(utils.nameToLink).join(', ') : 'none'}`);
-  
+
             if (char in data.parents) {
               for (const [key, name] of parentKeysAndNames) {
                 if (key in data.parents[char]) lines.push(`${name}: ${utils.nameToLink(data.parents[char][key])}`);

@@ -8,10 +8,10 @@ const numToOrdinal = (num) => {
 };
 
 const numOfTimes = (num) => {
-  if (num === 1) return `once`;
-  if (num === 2) return `twice`;
+  if (num === 1) return 'once';
+  if (num === 2) return 'twice';
   return `${num} times`;
-}
+};
 
 const parentStrings = (r, rStr, isReversed) => {
   const strings = [
@@ -22,7 +22,7 @@ const parentStrings = (r, rStr, isReversed) => {
   return {
     strings: isReversed ? strings.reverse() : strings,
     labelIndices: [10, -7],
-  }
+  };
 };
 
 const auntuncleStrings = (r, rStr, isReversed) => {
@@ -34,13 +34,13 @@ const auntuncleStrings = (r, rStr, isReversed) => {
   return {
     strings: isReversed ? strings.reverse() : strings,
     labelIndices: [10, -7],
-  }
+  };
 };
 
 /**
  * Returns general "template" strings that describe the consanguineous relationship
  * (e.g. mother, granduncle, third cousin) for two characters. Provides strings for
- * both directions, with placeheld names, and for different genders. 
+ * both directions, with placeheld names, and for different genders.
  * Labels agree with this chart:
  * https://commons.wikimedia.org/wiki/File:Table_of_Consanguinity_showing_degrees_of_relationship.svg
  * @param {number} degree1 Number of generations between the first character and the
@@ -88,9 +88,9 @@ const generateTemplates = (degree1, degree2) => {
           ];
 
           return {
-            strings: isReversed ? strings.reverse() : strings,
+            strings: i === 1 ? strings.reverse() : strings,
             labelIndices: [10, -7],
-          }
+          };
         case 2:
           return auntuncleStrings(r, '', i === 1);
         case 3:
@@ -160,4 +160,4 @@ exports.determine = (line1, gender1, line2, gender2, countAdopted, putNames, lab
   }
 
   return { result, isFull };
-}
+};
