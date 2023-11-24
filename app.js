@@ -167,7 +167,7 @@ http.createServer((request, res) => {
             const genders = ['male', 'female', 'unknown'];
             const parentKeysAndNames = [['mother', 'Mother'], ['father', 'Father'], ['adoptedMother', 'Adoptive mother'], ['adoptedFather', 'Adoptive father']];
 
-            lines.push(`Gender: ${genders[data.genders[char]]}`);
+            lines.push(`Sex: ${genders[data.genders[char]]}`);
             lines.push(`Mates: ${data.mates[char].length > 0 ? data.mates[char].map(utils.nameToLink).join(', ') : 'none'}`);
 
             if (char in data.parents) {
