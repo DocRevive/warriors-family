@@ -226,11 +226,11 @@ http.createServer((request, res) => {
             ).join('<br>');
 
             if (query.action === 2) {
-              respond(true, `${names}'s last common ancestor is ${linIResult.commonMember}.<br>${strs}`);
+              respond(true, `${names}'s last common ancestor is ${utils.nameToLink(linIResult.commonMember)}.<br>${strs}`);
               return;
             }
 
-            respond(true, `${names}'s most recent common descendant is ${linIResult.commonMember}.<br>${strs}`);
+            respond(true, `${names}'s most recent common descendant is ${utils.nameToLink(linIResult.commonMember)}.<br>${strs}`);
             return;
           }
         }

@@ -20,7 +20,7 @@ const fixMinorName = (name) => (name.includes('#') ? name.split('#')[1] : name);
  * @param {string} name valid name (full URL part)
  * @returns {string} HTML link
  */
-exports.nameToLink = (name) => (name.includes('Unnamed') ? name : `<a href="https://warriors.fandom.com/wiki/${name.replace(/ /g, '_')}">${fixMinorName(name)}</a>`);
+exports.nameToLink = (name) => (name.includes('Mother') ? name : `<a href="https://warriors.fandom.com/wiki/${name.replace(/ /g, '_')}">${fixMinorName(name)}</a>`);
 
 /**
  * Takes a string, capitalizes the first letter, replaces underscores

@@ -11,7 +11,7 @@ Object.values(names).forEach((name) => {
   const nameText = document.createTextNode(fixMinorName(name));
 
   el.setAttribute('name', name);
-  if (!name.includes('Unnamed Mother')) {
+  if (!name.includes('Mother')) {
     const a = document.createElement('a');
     a.setAttribute('href', nameToUrl(name));
     a.setAttribute('target', '_blank');
@@ -48,7 +48,7 @@ function request(form, qs) {
             <tbody>`;
           Object.entries(response.output).forEach(([key, value]) => {
             build += '<tr><td>';
-            build += key.includes('Unnamed Mother') ? key : `<a href="${nameToUrl(key)}">${fixMinorName(key)}</a>`;
+            build += key.includes('Mother') ? key : `<a href="${nameToUrl(key)}">${fixMinorName(key)}</a>`;
             build += `</td><td>${value.labels.join('<br>')}</td><td>${value.lineages.join('<br>')}</td></tr>`;
           });
           build += '</tbody></table>';
